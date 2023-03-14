@@ -18,9 +18,3 @@ The contained resources are the following:
  chmod +x Experiments/download_experiments.sh
  ./download_experiments.sh
  ```
-
-
-## TODOs:
- - Complete the bash file and make sure it works
- - Add code
- - Add LaTeX source

@@ -1,0 +1,12 @@
+.ftpconfig
+.ftpconfig.cson
+.ftpignore
+id_rsa
+.DS_Store
+.git
+.\datasets\*
+\datasets\*
+.\src\datasets\*
+\src\datasets\*
+.\src\data\datasets\*
+\src\data\datasets\*

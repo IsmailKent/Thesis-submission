@@ -1,0 +1,70 @@
+{
+  "dataset": {
+    "dataset_name": "MultiDSprites",
+    "shuffle_train": true,
+    "shuffle_eval": false
+  },
+  "model": {
+    "model_name": "SlotAttention",
+    "SlotAttention": {
+      "num_slots": 6,
+      "slot_dim": 64,
+      "in_channels": 3,
+      "num_channels": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "kernel_size": 5,
+      "num_iterations": 3,
+      "resolution": [
+        64,
+        64
+      ],
+      "downsample_encoder": false,
+      "decoder_resolution": [
+        64,
+        64
+      ],
+      "upsample": 4
+    },
+    "predictor": {
+      "predictor_name": "LSTM",
+      "LSTM": {
+        "num_cells": 2,
+        "hidden_dim": 64
+      }
+    }
+  },
+  "loss": [
+    {
+      "type": "mse",
+      "weight": 1
+    }
+  ],
+  "training": {
+    "num_context": 5,
+    "num_preds": 5,
+    "teacher_force": false,
+    "num_epochs": 500,
+    "save_frequency": 20,
+    "log_frequency": 100,
+    "image_log_frequency": 800,
+    "batch_size": 64,
+    "lr": 0.0004,
+    "optimizer": "adam",
+    "momentum": 0,
+    "weight_decay": 0,
+    "nesterov": false,
+    "scheduler": "exponential",
+    "lr_factor": 0.5,
+    "patience": 5,
+    "scheduler_steps": 100000,
+    "lr_warmup": true,
+    "warmup_steps": 12000,
+    "warmup_epochs": 10,
+    "gradient_clipping": true,
+    "clipping_max_value": 1
+  }
+}

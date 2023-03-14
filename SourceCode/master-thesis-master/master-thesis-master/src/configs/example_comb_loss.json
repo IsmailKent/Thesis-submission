@@ -1,0 +1,113 @@
+{
+  "dataset": {
+    "dataset_name": "OBJ3D",
+    "shuffle_train": true,
+    "shuffle_eval": false
+  },
+  "model": {
+    "model_name": "SAVi",
+    "SAVi": {
+      "num_slots": 6,
+      "slot_dim": 64,
+      "in_channels": 3,
+      "num_channels": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "kernel_size": 5,
+      "num_iterations": 3,
+      "resolution": [
+        64,
+        64
+      ],
+      "downsample_encoder": false,
+      "decoder_resolution": [
+        64,
+        64
+      ],
+      "upsample": 4
+    },
+    "predictor": {
+      "predictor_name": "VanillaTransformer",
+      "LSTM": {
+        "num_cells": 2,
+        "hidden_dim": 64
+      },
+      "VanillaTransformer": {}
+    }
+  },
+  "loss": [
+    {
+      "type": "mse",
+      "weight": 1
+    },
+    {
+      "type": "pred_img_mse",
+      "weight": 1
+    }
+  ],
+  "predictor_loss": [
+    {
+      "type": "pred_img_mse",
+      "weight": 1
+    }
+    {
+      "type": "pred_slot_mse",
+      "weight": 1
+    }
+  ],
+  "training_slots": {
+    "num_epochs": 1000,
+    "save_frequency": 10,
+    "log_frequency": 100,
+    "image_log_frequency": 100,
+    "batch_size": 64,
+    "sample_length": 10,
+    "lr": 0.0001,
+    "optimizer": "adam",
+    "momentum": 0,
+    "weight_decay": 0,
+    "nesterov": false,
+    "scheduler": "constant",
+    "lr_factor": 0.8,
+    "patience": 10,
+    "scheduler_steps": 1000000,
+    "lr_warmup": false,
+    "warmup_steps": 2000,
+    "warmup_epochs": 2,
+    "gradient_clipping": true,
+    "clipping_max_value": 0.05
+  },
+  "training_prediction": {
+    "num_context": 5,
+    "num_preds": 5,
+    "teacher_force": true,
+    "num_epochs": 1500,
+    "save_frequency": 10,
+    "log_frequency": 100,
+    "image_log_frequency": 100,
+    "batch_size": 64,
+    "sample_length": 10,
+    "lr": 0.0001,
+    "optimizer": "adam",
+    "momentum": 0,
+    "weight_decay": 0,
+    "nesterov": false,
+    "scheduler": "constant",
+    "lr_factor": 0.8,
+    "patience": 10,
+    "scheduler_steps": 1000000,
+    "lr_warmup": false,
+    "warmup_steps": 2000,
+    "warmup_epochs": 2,
+    "gradient_clipping": true,
+    "clipping_max_value": 0.05
+  },
+  "_general": {
+    "exp_path": "/home/user/wahdan/master-thesis/src/experiments/Obj3d-constant-lr/",
+    "created_time": "2022-10-20_20-19-16",
+    "last_loaded": "2022-10-20_20-19-16"
+  }
+}

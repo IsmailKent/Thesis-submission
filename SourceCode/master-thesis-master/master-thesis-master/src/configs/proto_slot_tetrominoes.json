@@ -1,0 +1,53 @@
+{
+  "dataset": {
+    "dataset_name": "Tetrominoes",
+    "shuffle_train": true,
+    "shuffle_eval": false
+  },
+  "model": {
+    "model_name": "ProtoSlotModel",
+    "ProtoSlotModel": {
+      "num_protos": 4,
+      "num_modules": 3,
+      "protos_dim": 64,
+      "in_channels": 3,
+      "num_channels": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "kernel_size": 5,
+      "resolution": [
+        35,
+        35
+      ],
+      "decoder_resolution": [
+        35,
+        35
+      ],
+      "num_iterations": 3
+    }
+  },
+  "loss": {
+    "loss_recons": "mse",
+    "lambda_recons": 1
+  },
+  "training": {
+    "num_epochs": 300,
+    "save_frequency": 5000,
+    "log_frequency": 1000,
+    "batch_size": 64,
+    "lr": 0.0003,
+    "optimizer": "adam",
+    "momentum": 0,
+    "weight_decay": 0,
+    "nesterov": false,
+    "scheduler": "exponential",
+    "lr_factor": 0.5,
+    "patience": 5,
+    "lr_warmup": true,
+    "warmup_steps": 3000,
+    "warmup_epochs": 3
+  }
+}
